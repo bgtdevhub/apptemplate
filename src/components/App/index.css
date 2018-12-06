@@ -1,0 +1,35 @@
+.viewDiv {
+  width: 100%;
+  height: 80vh;
+}
+
+.widgets {
+  display: flex;
+}
+
+.legendDiv {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-top: 8px;
+  width: 100%;
+  border: solid 1px #ccc;
+  display: flex;
+}
+
+.esri-legend__layer-body {
+  display: flex;
+}
+
+.esri-legend__layer-caption {
+  display: none;
+}
+
+.esri-legend__service {
+  border-bottom: none;
+  flex-direction: column;
+  height: 76px;
+}
+
+.esri-legend__service-label {
+  display: none;
+}

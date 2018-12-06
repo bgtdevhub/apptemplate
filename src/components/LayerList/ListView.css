@@ -1,0 +1,35 @@
+.list-view {
+  position: absolute;
+  top: 42px;
+  right: 0;
+  width: 400px;
+  margin-right: -355px;
+  background-color:rgba(255, 255, 255, 1);
+  overflow: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.layer-div {
+  display: flex;
+  align-items: center;
+  color: #646464;
+}
+
+.layer-title {
+  font-size: 14px;
+  letter-spacing: .5px;
+}
+
+.toggle-icon {
+  font-size: 18px;
+  padding: 12px 10px 10px 16px;
+}
+
+.layer-div:hover {
+  color: #fff;
+  background-color: #9c9c9c;
+  cursor: pointer;
+}

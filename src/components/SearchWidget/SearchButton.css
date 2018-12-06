@@ -1,0 +1,20 @@
+.searchButton {
+    width: 45px;
+    height: 25px;
+    background-color: #fff;
+    cursor: pointer;
+    border: solid 1px transparent;
+    position: relative;
+    border-right: solid 1px #d3d3d3;
+    flex-direction: column;
+}
+
+.searchButtonFont {
+    font-size: 20px;
+    font-weight: 700;
+    color: #646464;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

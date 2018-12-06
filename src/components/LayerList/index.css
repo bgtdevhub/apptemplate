@@ -1,0 +1,21 @@
+.layerListWidget {
+  width: 45px;
+  height: 25px;
+  background-color: #fff;
+  border: solid 1px transparent;
+  position: relative;
+  flex-direction: column;
+  border-right: solid 1px #d3d3d3;
+  cursor: pointer;
+}
+
+.layers {
+  font-size: 20px !important;
+  font-weight: 700;
+  color: #646464;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
