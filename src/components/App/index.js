@@ -13,7 +13,9 @@ class App extends Component {
     this.state = {
       mapView: null,
       layerListViewModel: null,
-      basemaps: []
+      basemaps: [],
+      selectedDefaultBasemap: 'cartographic',
+      haveLayers: false
     }
   }
 
@@ -29,10 +31,10 @@ class App extends Component {
       settings: applicationSettings      
     }).load();
 
-    const [MapView, Map, ScaleBar, LayerListViewModel, Legend, WMTSLayer, Basemap] = await esriLoader.loadModules(
+    const [MapView, WebMap, ScaleBar, LayerListViewModel, Legend, WMTSLayer, Basemap] = await esriLoader.loadModules(
       [
         "esri/views/MapView",
-        "esri/Map",
+        "esri/WebMap",
         "esri/widgets/ScaleBar",
         "esri/widgets/LayerList/LayerListViewModel",
         "esri/widgets/Legend",
@@ -60,7 +62,8 @@ class App extends Component {
     });
 
     this.setState({
-      basemaps: [cartoBasemap, aerialBasemap, overlayBasemap]
+      basemaps: [cartoBasemap, aerialBasemap, overlayBasemap],
+      selectedDefaultBasemap: base.config.defaultBasemap || "cartographic"
     })
 
     let defaultBasemap = cartoBasemap;
@@ -71,8 +74,10 @@ class App extends Component {
       defaultBasemap = overlayBasemap;
     }
 
-    const map = new Map({
-      basemap: defaultBasemap
+    const map = await new WebMap({
+      portalItem: {
+        id: base.results.webMapItems[0].value.id
+      }
     });
 
     const mapView = new MapView({
@@ -87,6 +92,8 @@ class App extends Component {
 
     await mapView.when();
 
+    mapView.map.basemap = defaultBasemap;
+
     const scaleBar = new ScaleBar({
       view: mapView,
       unit: 'metric'
@@ -100,9 +107,15 @@ class App extends Component {
       view: mapView
     });
 
-    new Legend({
-      view: mapView
-    }, "legendDiv");
+    if (layerListViewModel.operationalItems.items.length) {
+      new Legend({
+        view: mapView
+      }, "legendDiv");
+
+      this.setState({
+        haveLayers: true
+      })
+    }
 
     // change the attribution text
     const poweredBy = document.getElementsByClassName("esri-attribution__powered-by");
@@ -125,6 +138,9 @@ class App extends Component {
   }
 
   render() {
+
+    const legendDivClass = this.state.haveLayers ? "legendDiv" : "";
+
     return (
       <div>
         <div id="viewDiv" className="viewDiv">
@@ -132,10 +148,11 @@ class App extends Component {
             mapView={this.state.mapView}
             layerListViewModel={this.state.layerListViewModel}
             basemaps={this.state.basemaps}
+            selectedDefaultBasemap={this.state.selectedDefaultBasemap}
           />
           <ZoomWidget mapView={this.state.mapView} />
         </div>
-        <div id="legendDiv" className="legendDiv">
+        <div id="legendDiv" className={legendDivClass}>
         </div>
       </div>
     );

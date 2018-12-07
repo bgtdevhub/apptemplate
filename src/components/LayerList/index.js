@@ -14,6 +14,7 @@ class LayerListWidget extends Component {
           show={this.props.show}
           mapView={this.props.mapView}
           basemaps={this.props.basemaps}
+          selectedDefaultBasemap={this.props.selectedDefaultBasemap}
         />
       </div>
     )

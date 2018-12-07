@@ -15,9 +15,16 @@ class ListView extends Component {
   componentDidUpdate() {
     if (this.props.layerListViewModel) {
 
+      // initialization only
       if (!this.overlaysOnOff) {
         this.overlaysOnOff = new Array(this.props.layerListViewModel.operationalItems.items.length).fill(1);
-        this.basemapOnOff = [1, 0, 0];
+        if (this.props.selectedDefaultBasemap === "cartographic") {
+          this.basemapOnOff = [1, 0, 0];
+        } else if (this.props.selectedDefaultBasemap === "aerial") {
+          this.basemapOnOff = [0, 1, 0];
+        } else {
+          this.basemapOnOff = [0, 0, 1];
+        }
       }
     }
   }
@@ -73,7 +80,10 @@ class ListView extends Component {
         <div className={basemapClass[this.basemapOnOff[1]]} onClick={(e) => this.switchBasemap(e, "aerial")}>Vicmap Basemap - Aerial</div>
         <div className={basemapClass[this.basemapOnOff[2]]} onClick={(e) => this.switchBasemap(e, "overlay")}>Vicmap Basemap - Overlay</div>
       </div>
-      <div className="layer-section-label">OVERLAYS</div>
+      {
+        this.props.layerListViewModel && this.props.layerListViewModel.operationalItems.items.length ?
+        <div className="layer-section-label">OVERLAYS</div> : <div></div>
+      }
       {
         this.props.layerListViewModel && this.props.layerListViewModel.operationalItems.items.map((layer, index) => {
           return (
