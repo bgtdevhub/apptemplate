@@ -1,6 +1,6 @@
 .viewDiv {
   width: 100%;
-  height: 80vh;
+  height: 86vh;
 }
 
 .widgets {
@@ -27,9 +27,44 @@
 .esri-legend__service {
   border-bottom: none;
   flex-direction: column;
-  height: 76px;
+  height: 70px;
 }
 
 .esri-legend__service-label {
   display: none;
+}
+
+.esri-scale-bar__line {
+  background-color: #000000;
+}
+
+.esri-scale-bar__line:before {
+  background-color: #000000;
+}
+
+.esri-scale-bar__line:after {
+  background-color: #000000;
+}
+
+.esri-scale-bar__label {
+  color: #000000;
+}
+
+.esri-attribution {
+  background-color: transparent;
+  opacity: 1;
+  height: 20px;
+  z-index: 1;
+}
+
+.esri-attribution__sources {
+  color: transparent;
+}
+
+.esri-attribution__powered-by {
+  padding-bottom: 5px;
+  color: #000000;
+  font-size: 13px;
+  opacity: 0;
+  font-family: 'Arial', Times, serif;
 }

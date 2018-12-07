@@ -68,6 +68,20 @@ class App extends Component {
     new Legend({
       view: mapView
     }, "legendDiv");
+
+    // change the attribution text
+    const poweredBy = document.getElementsByClassName("esri-attribution__powered-by");
+
+    poweredBy[0].innerHTML = '';
+
+    const disclaimerDiv = document.createElement('DIV');
+    disclaimerDiv.innerHTML = `<div>
+      Vicmap Basemap Services &copy; 2018 State Government of Victoria |
+      <a href="https://www2.delwp.vic.gov.au/copyright/" target="_blank" style="color:#4BABFA;">Copyright and Disclaimer</a>
+    </div>`
+    poweredBy[0].appendChild(disclaimerDiv);
+
+    poweredBy[0].style.opacity = 1;
     
     this.setState({
       mapView,

@@ -1,7 +1,7 @@
 .searchWidget {
     position: absolute;
-    top: 20px;
-    right: 150px;
+    top: 63px;
+    left: 150px;
     display: flex;
     background-color: #ffffff;
     align-items: center;

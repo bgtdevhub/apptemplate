@@ -11,7 +11,8 @@ const SearchInput = (props) => {
     const searchInputClass = "searchInput";
 
     return (
-        <input type="search"
+        <input type="text"
+            spellCheck="false"
             className={searchInputClass}
             placeholder="Find Location"
             onChange={(event) => {inputChangedHandler(props, event)}}

@@ -1,10 +1,10 @@
 .zoomWidget {
-  width: 93px;
-  height: 43px;
+  width: 94px;
+  height: 46px;
   background-color: #fff;
   position: absolute;
-  top: 20px;
-  right: 45px;
+  top: 63px;
+  left: 536px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,7 +14,7 @@
 .zoom-label {
   font-size: 15px;
   font-weight: 700;
-  color: #646464;
+  color: #000000;
   padding: 10px;
   cursor: pointer;
 }

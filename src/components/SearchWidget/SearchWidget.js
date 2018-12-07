@@ -126,7 +126,12 @@ class SearchWidget extends Component {
   render() {
     return (
       <div className="searchWidget">
-        <LayerListWidget layerListViewModel={this.props.layerListViewModel} show={this.state.showLayerList} toggle={this.toggleLayerList.bind(this)} />
+        <LayerListWidget
+          layerListViewModel={this.props.layerListViewModel}
+          show={this.state.showLayerList}
+          toggle={this.toggleLayerList.bind(this)}
+          mapView={this.props.mapView}
+        />
         
         <SearchInput
           showSuggestion={this.showSuggestion.bind(this)}
@@ -143,7 +148,7 @@ class SearchWidget extends Component {
           doSearch={this.doSearch.bind(this)}
         />
 
-        <LocateWidget mapView={this.props.mapView}/>
+        <LocateWidget mapView={this.props.mapView} />
       </div>
     )
   }   

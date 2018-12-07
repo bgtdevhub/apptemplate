@@ -6,52 +6,80 @@ class ListView extends Component {
   constructor(props) {
     super(props);
     this.listViewRef = React.createRef();
+    this.basemapSwitcherRef = React.createRef();
 
-    this.onOff = null;
+    this.overlaysOnOff = null;
+    this.basemapOnOff = null;
   }
 
   componentDidUpdate() {
     if (this.props.layerListViewModel) {
 
-      if (!this.onOff) {
-        this.onOff = new Array(this.props.layerListViewModel.operationalItems.items.length).fill(1);
+      if (!this.overlaysOnOff) {
+        this.overlaysOnOff = new Array(this.props.layerListViewModel.operationalItems.items.length).fill(1);
+        this.basemapOnOff = [1, 0, 0];
       }
     }
   }
 
-  showHideLayer(e, layer, index) {
-    e.stopPropagation();
+  showHideLayer(e, layer, index, isFromCheckbox) {
 
     const target = document.getElementById(layer.title);
-    const classList = [...target.firstChild.classList];
     
-    const isCurrentlyVisible = classList.includes("esri-icon-visible");
+    const isCurrentlyVisible = target.firstChild.checked;
 
     if (isCurrentlyVisible) {
       layer.visible = false;
-      target.firstChild.classList.remove("esri-icon-visible");
-      target.firstChild.classList.add("esri-icon-non-visible");
-      this.onOff[index] = 0;
+      target.firstChild.checked = false;
+      this.overlaysOnOff[index] = 0;
     } else {
       layer.visible = true;
-      target.firstChild.classList.remove("esri-icon-non-visible");
-      target.firstChild.classList.add("esri-icon-visible");
-      this.onOff[index] = 1;
+      target.firstChild.checked = true;
+      this.overlaysOnOff[index] = 1;
+    }
+  }
+
+  switchBasemap(e, basemap) {
+
+    const children = [...this.basemapSwitcherRef.current.children];
+
+    children.forEach(child => {
+      child.classList.remove("bold");
+    })
+
+    e.target.classList.add("bold");
+
+    if (basemap === "cartographic") {
+      this.props.mapView.map.basemap = "topo";
+      this.basemapOnOff = [1, 0, 0];
+    } else if (basemap === "aerial") {
+      this.props.mapView.map.basemap = "satellite";
+      this.basemapOnOff = [0, 1, 0];
+    } else {
+      this.props.mapView.map.basemap = "osm";
+      this.basemapOnOff = [0, 0, 1];
     }
   }
 
   render() {
 
-    const onOffIcon = ["esri-icon-non-visible toggle-icon", "esri-icon-visible toggle-icon"];
+    const basemapClass = ["basemap-label", "basemap-label bold"];
 
     return (
       this.props.show && <div className="list-view" ref={this.listViewRef}>
+      <div className="layer-section-label">BASEMAP</div>
+      <div className="basemap-switcher" ref={this.basemapSwitcherRef}>
+        <div className={basemapClass[this.basemapOnOff[0]]} onClick={(e) => this.switchBasemap(e, "cartographic")}>Vicmap Basemap - Cartographic</div>
+        <div className={basemapClass[this.basemapOnOff[1]]} onClick={(e) => this.switchBasemap(e, "aerial")}>Vicmap Basemap - Aerial</div>
+        <div className={basemapClass[this.basemapOnOff[2]]} onClick={(e) => this.switchBasemap(e, "overlay")}>Vicmap Basemap - Overlay</div>
+      </div>
+      <div className="layer-section-label">OVERLAYS</div>
       {
         this.props.layerListViewModel && this.props.layerListViewModel.operationalItems.items.map((layer, index) => {
           return (
             <div key={index}>
               <div className="layer-div" id={layer.title} onClick={(e) => this.showHideLayer(e, layer, index)}>
-                <i className={onOffIcon[this.onOff[index]]}></i>
+                <input type="checkbox" defaultChecked={this.overlaysOnOff[index]} onClick={(e) => this.showHideLayer(e, layer, index, "isFromCheckbox")}/>
                 <div className="layer-title">{layer.title}</div>
               </div>
             </div>

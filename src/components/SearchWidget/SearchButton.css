@@ -1,5 +1,5 @@
 .searchButton {
-    width: 45px;
+    width: 40px;
     height: 25px;
     background-color: #fff;
     cursor: pointer;
@@ -12,7 +12,7 @@
 .searchButtonFont {
     font-size: 20px;
     font-weight: 700;
-    color: #646464;
+    color: #000000;
     position: absolute;
     top: 50%;
     left: 50%;

@@ -27,7 +27,7 @@ const highlightSearchTerm = (myString, searchTerm) => {
 
   searchTerm = searchTerm.trim();
 
-  const highlightString = myString.replace(searchTerm, "<b>" + searchTerm + "</b>");
+  const highlightString = myString.replace(searchTerm, "<span class='bold-search-term'>" + searchTerm + "</span>");
   return {__html: highlightString};
 }
 

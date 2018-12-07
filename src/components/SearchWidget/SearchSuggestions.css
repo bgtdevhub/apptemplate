@@ -1,8 +1,8 @@
 .resultsPane {
   position: absolute;
-  top: 50px;
-  right: 0;
-  width: 100%;
+  top: 55px;
+  left: 47px;
+  width: 433px;
   background-color:rgba(255, 255, 255, 1);
   overflow: hidden;
 }
@@ -12,12 +12,12 @@
 }
 
 .suggestionText {
-  font-size: 15px;
-  color: #6e6e6e;
-  padding: 6px 25px 6px 25px;
+  font-size: 16px;
+  color: #000000;
+  padding: 2px 25px 6px 20px;
   font-weight: 400;
   line-height: 120%;
-  letter-spacing: .5px;
+  /* letter-spacing: .5px; */
 }
 
 .suggestionText:not(:last-child) {
@@ -25,15 +25,23 @@
 }
 
 .suggestionText:hover {
-  color: #fff;
-  background-color: #9c9c9c;
-  padding: 6px 25px 6px 25px;
+  color: #00b7bd;
+  /* background-color: #9c9c9c; */
+  /* padding: 6px 25px 6px 25px;*/
   cursor: pointer;
 }
 
 .headerLabel {
   height: 20px;
-  padding: 10px 0 5px 15px;
-  font-weight: bold;
-  color: #505050;
+  padding: 5px 0 2px 2px;
+  font-size: 17px;
+  color: #000000;
+  border-bottom: solid 1px #e7e7e7;
+  width: 63px;
+  margin-left: 10px;
+  font-family: 'VIC-Bold'
+}
+
+.bold-search-term {
+  font-family: 'VIC-Bold'
 }
