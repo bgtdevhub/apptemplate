@@ -131,6 +131,7 @@ class SearchWidget extends Component {
           show={this.state.showLayerList}
           toggle={this.toggleLayerList.bind(this)}
           mapView={this.props.mapView}
+          basemaps={this.props.basemaps}
         />
         
         <SearchInput

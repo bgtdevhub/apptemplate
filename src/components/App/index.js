@@ -12,7 +12,8 @@ class App extends Component {
 
     this.state = {
       mapView: null,
-      layerListViewModel: null
+      layerListViewModel: null,
+      basemaps: []
     }
   }
 
@@ -28,23 +29,57 @@ class App extends Component {
       settings: applicationSettings      
     }).load();
 
-    // base.config.search = true; // testing purpose
-    // await this.setState({
-    //   showSearch: base.config.search
-    // })
+    const [MapView, Map, ScaleBar, LayerListViewModel, Legend, WMTSLayer, Basemap] = await esriLoader.loadModules(
+      [
+        "esri/views/MapView",
+        "esri/Map",
+        "esri/widgets/ScaleBar",
+        "esri/widgets/LayerList/LayerListViewModel",
+        "esri/widgets/Legend",
+        "esri/layers/WMTSLayer",
+        "esri/Basemap"
+      ]
+    );
 
-    const [MapView, WebMap, ScaleBar, LayerListViewModel, Legend] = await esriLoader.loadModules(
-      ["esri/views/MapView", "esri/WebMap", "esri/widgets/ScaleBar", "esri/widgets/LayerList/LayerListViewModel", "esri/widgets/Legend"]);
+    const wmtsCartoDELWP = new WMTSLayer(base.config.cartoBasemap);
 
-    const webmap = new WebMap({
-      portalItem: {
-        id: '655fca18c8604b2daed8c41f2c2ea4bc'
-      }
+    const wmtsAerialDELWP = new WMTSLayer(base.config.aerialBasemap);
+
+    const wmtsOverlayDELWP = new WMTSLayer(base.config.overlayBasemap);
+
+    const cartoBasemap = new Basemap({
+      baseLayers: [wmtsCartoDELWP]
+    });
+
+    const aerialBasemap = new Basemap({
+      baseLayers: [wmtsAerialDELWP]
+    });
+
+    const overlayBasemap = new Basemap({
+      baseLayers: [wmtsAerialDELWP, wmtsOverlayDELWP]
+    });
+
+    this.setState({
+      basemaps: [cartoBasemap, aerialBasemap, overlayBasemap]
+    })
+
+    let defaultBasemap = cartoBasemap;
+
+    if (base.config.defaultBasemap === "aerial") {
+      defaultBasemap = aerialBasemap;
+    } else if (base.config.defaultBasemap === "overlay") {
+      defaultBasemap = overlayBasemap;
+    }
+
+    const map = new Map({
+      basemap: defaultBasemap
     });
 
     const mapView = new MapView({
       container: "viewDiv",
-      map: webmap,
+      map: map,
+      scale: 4518427,
+      center: [145.11890095422424, -36.733030896553814],
       ui: {
         components: ['attribution']
       }
@@ -93,7 +128,11 @@ class App extends Component {
     return (
       <div>
         <div id="viewDiv" className="viewDiv">
-          <SearchWidget mapView={this.state.mapView} layerListViewModel={this.state.layerListViewModel} />
+          <SearchWidget
+            mapView={this.state.mapView}
+            layerListViewModel={this.state.layerListViewModel}
+            basemaps={this.state.basemaps}
+          />
           <ZoomWidget mapView={this.state.mapView} />
         </div>
         <div id="legendDiv" className="legendDiv">

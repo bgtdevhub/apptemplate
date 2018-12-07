@@ -8,6 +8,24 @@
   "oauthappid": "pvOxst5hmPvNzsKU",
   "proxyUrl": "",
   "units": "",
+  "cartoBasemap": {
+    "url": "https://base.maps.vic.gov.au/wmts",
+    "activeLayer": {
+      "id": "CARTO_WM"
+    }
+  },
+  "aerialBasemap": {
+    "url": "https://base.maps.vic.gov.au/wmts",
+    "activeLayer": {
+      "id": "AERIAL_WM"
+    }
+  },
+  "overlayBasemap": {
+    "url": "https://base.maps.vic.gov.au/wmts",
+    "activeLayer": {
+      "id": "CARTO_OVERLAY_WM"
+    }
+  },
   "helperServices": {
     "geometry": {
       "url": null

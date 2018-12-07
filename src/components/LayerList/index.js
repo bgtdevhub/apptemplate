@@ -9,7 +9,12 @@ class LayerListWidget extends Component {
       <div className="layerListWidget">
         <i className="esri-icon-layers layers" onClick={this.props.toggle}></i>
         
-        <ListView layerListViewModel={this.props.layerListViewModel} show={this.props.show} mapView={this.props.mapView} />
+        <ListView
+          layerListViewModel={this.props.layerListViewModel}
+          show={this.props.show}
+          mapView={this.props.mapView}
+          basemaps={this.props.basemaps}
+        />
       </div>
     )
   }   
