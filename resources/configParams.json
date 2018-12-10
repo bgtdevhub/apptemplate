@@ -1,0 +1,40 @@
+{
+  "displayType": "tabs",
+  "configurationSettings": [
+    {
+      "category": "General",
+      "fields": [
+        {
+          "type": "subcategory",
+          "label": "Configuration Options"
+        },
+        {
+          "type": "radio",
+          "fieldName": "defaultBasemap",
+          "label": "Choose a default basemap",
+          "items": [
+            {
+              "label": "Cartographic",
+              "value": "cartographic",
+              "checked": true
+            },
+            {
+              "label": "Aerial",
+              "value": "aerial"
+            },
+            {
+              "label": "Overlay",
+              "value": "overlay"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "fieldName": "showLocateMe",
+          "label": "Show Locate Me Button",
+          "tooltip": ""
+    }
+      ]
+    }
+  ]
+}

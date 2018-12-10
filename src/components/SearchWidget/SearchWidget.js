@@ -124,8 +124,11 @@ class SearchWidget extends Component {
   }
 
   render() {
+
+    const searchWidgetClasses = this.props.showLocateMe ? "searchWidget" : "searchWidget shift-right";
+
     return (
-      <div className="searchWidget">
+      <div className={searchWidgetClasses}>
         <LayerListWidget
           layerListViewModel={this.props.layerListViewModel}
           show={this.state.showLayerList}
@@ -150,7 +153,7 @@ class SearchWidget extends Component {
           doSearch={this.doSearch.bind(this)}
         />
 
-        <LocateWidget mapView={this.props.mapView} />
+        <LocateWidget mapView={this.props.mapView} showLocateMe={this.props.showLocateMe} />
       </div>
     )
   }   

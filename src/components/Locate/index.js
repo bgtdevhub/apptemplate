@@ -24,10 +24,11 @@ class LocateWidget extends Component {
   }
 
   render() {
+    const locateMeClass = this.props.showLocateMe ? "locateWidget" : "locateWidget hidden";
     const locateFontClasses = ['esri-icon-locate locateButtonFont'];
 
     return (
-      <div className="locateWidget" onClick={this.locateMe}>
+      <div className={locateMeClass} onClick={this.locateMe}>
         <i className={locateFontClasses}></i>
       </div>
     )

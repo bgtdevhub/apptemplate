@@ -7,17 +7,19 @@
   display: flex;
 }
 
+/* LEGEND */
 .legendDiv {
   margin-top: 8px;
   margin-bottom: 8px;
   padding-top: 8px;
   width: 100%;
   border: solid 1px #ccc;
-  display: flex;
+  /* display: flex; */
 }
 
 .esri-legend__layer-body {
   display: flex;
+  flex-flow: wrap;
 }
 
 .esri-legend__layer-caption {
@@ -26,14 +28,17 @@
 
 .esri-legend__service {
   border-bottom: none;
-  flex-direction: column;
-  height: 70px;
+  /* display: inline; */
+  /* flex-direction: column; */
+  /* height: 70px; */
 }
 
 .esri-legend__service-label {
   display: none;
 }
 
+
+/* SCALE BAR */
 .esri-scale-bar__line {
   background-color: #000000;
 }
@@ -50,6 +55,7 @@
   color: #000000;
 }
 
+/* ATTRIBUTION */
 .esri-attribution {
   background-color: transparent;
   opacity: 1;

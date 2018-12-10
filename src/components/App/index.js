@@ -31,6 +31,8 @@ class App extends Component {
       settings: applicationSettings      
     }).load();
 
+    const showLocateMe = base.config.showLocateMe || false;
+
     const [MapView, WebMap, ScaleBar, LayerListViewModel, Legend, WMTSLayer, Basemap] = await esriLoader.loadModules(
       [
         "esri/views/MapView",
@@ -133,7 +135,8 @@ class App extends Component {
     
     this.setState({
       mapView,
-      layerListViewModel
+      layerListViewModel,
+      showLocateMe
     })
   }
 
@@ -149,6 +152,7 @@ class App extends Component {
             layerListViewModel={this.state.layerListViewModel}
             basemaps={this.state.basemaps}
             selectedDefaultBasemap={this.state.selectedDefaultBasemap}
+            showLocateMe={this.state.showLocateMe}
           />
           <ZoomWidget mapView={this.state.mapView} />
         </div>
