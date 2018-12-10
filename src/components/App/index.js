@@ -138,6 +138,32 @@ class App extends Component {
       layerListViewModel,
       showLocateMe
     })
+
+    this.state.mapView.map.allLayers.forEach(async (layer, index) => {
+      await layer.when();
+      this.updateLegendStyleWithTimeOut(this.state.mapView.map.allLayers.length, index + 1, 2500);
+    });
+  }
+
+  updateLegendStyleWithTimeOut(numOfLayer, index, delay) {
+
+    if (numOfLayer === index) {
+      setTimeout(() => { // rerender the legend item
+
+        const rearrangedLegend = document.getElementById("rearrangedLegend");
+        while (rearrangedLegend.firstChild) {
+          rearrangedLegend.removeChild(rearrangedLegend.firstChild);
+        }
+
+        const legendItems = [...document.getElementsByClassName("esri-legend__layer-row")];
+
+        legendItems.forEach(item => {
+          const newChild = item.cloneNode(true);
+          rearrangedLegend.appendChild(newChild);
+        });
+
+      }, delay);
+    }
   }
 
   render() {
@@ -153,10 +179,12 @@ class App extends Component {
             basemaps={this.state.basemaps}
             selectedDefaultBasemap={this.state.selectedDefaultBasemap}
             showLocateMe={this.state.showLocateMe}
+            updateLegendStyleWithTimeOut={this.updateLegendStyleWithTimeOut}
           />
           <ZoomWidget mapView={this.state.mapView} />
         </div>
         <div id="legendDiv" className={legendDivClass}>
+          <div id="rearrangedLegend" className="rearrangedLegend"></div>
         </div>
       </div>
     );

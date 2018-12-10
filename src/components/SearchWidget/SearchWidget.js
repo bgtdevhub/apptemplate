@@ -120,7 +120,7 @@ class SearchWidget extends Component {
     this.setState({
       showLayerList: !this.state.showLayerList,
       searchSuggestionVisible: false
-    })
+    });
   }
 
   render() {
@@ -136,6 +136,7 @@ class SearchWidget extends Component {
           mapView={this.props.mapView}
           basemaps={this.props.basemaps}
           selectedDefaultBasemap={this.props.selectedDefaultBasemap}
+          updateLegendStyleWithTimeOut={this.props.updateLegendStyleWithTimeOut}
         />
         
         <SearchInput
