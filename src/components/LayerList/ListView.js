@@ -48,7 +48,7 @@ class ListView extends Component {
 
   switchBasemap(e, basemap) {
 
-    const children = [...this.basemapSwitcherRef.current.children];
+    const children = Array.prototype.slice.call(this.basemapSwitcherRef.current.children);
 
     children.forEach(child => {
       child.classList.remove("bold");
