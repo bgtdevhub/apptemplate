@@ -13,7 +13,7 @@ To use this template, you can either host it at your own web server (with ssl en
 
 1. Follow the steps mentioned [here](https://doc.arcgis.com/en/arcgis-online/create-maps/create-app-templates.htm) to setup your configurable application to share it with your organization.
 
-2. Paste the configurable parameters from [resources/configParams.json] into the "Configuration Parameters" input.
+2. Paste the configurable parameters from [resources/configParams.json](resources/configParams.json) into the "Configuration Parameters" input.
 
 3. Enter the URL for the this template(your own hosted full web server URL or https://www.bgtdevhub.com/apptemplate/index.html) for your configurable app at the "Data Source" input. 
 
