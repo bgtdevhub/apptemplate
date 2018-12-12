@@ -65,14 +65,20 @@ class SearchWidget extends Component {
     this.state.vmAddress.watch('selectedResult', (result) => {
       const longitude = result.extent.center.longitude;
       const latitude = result.extent.center.latitude;
-      this.props.mapView.goTo([longitude, latitude]);
+      this.props.mapView.goTo({
+        center: [longitude, latitude],
+        zoom: 16
+      });
       this.props.mapView.focus();
     });
 
     this.state.vmLocality.watch('selectedResult', (result) => {
       const longitude = result.extent.center.longitude;
       const latitude = result.extent.center.latitude;
-      this.props.mapView.goTo([longitude, latitude]);
+      this.props.mapView.goTo({
+        center: [longitude, latitude],
+        zoom: 16
+      });
       this.props.mapView.focus();
     });
   }
