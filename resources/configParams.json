@@ -33,7 +33,15 @@
           "fieldName": "showLocateMe",
           "label": "Show Locate Me Button",
           "tooltip": ""
-    }
+        },
+        {
+          "type": "paragraph",
+            "value": "If you are embedding this app into another page you might want to prevent map scroll"
+        }, {
+            "type": "boolean",
+            "fieldName": "disableScroll",
+            "label": "Prevent map scroll"
+        }
       ]
     }
   ]

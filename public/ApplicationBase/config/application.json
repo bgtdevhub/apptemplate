@@ -27,6 +27,7 @@
     }
   },
   "showLocateMe": true,
+  "disableScroll": true,
   "helperServices": {
     "geometry": {
       "url": null

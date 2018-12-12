@@ -92,6 +92,13 @@ class App extends Component {
 
     await mapView.when();
 
+    if (base.config.disableScroll) {
+      mapView.on("mouse-wheel", function(event) {
+        // disable mouse wheel scroll zooming on the view
+        event.stopPropagation();
+      });
+    }
+
     mapView.map.basemap = defaultBasemap;
 
     const scaleBar = new ScaleBar({
