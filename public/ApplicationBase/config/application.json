@@ -26,6 +26,7 @@
       "id": "CARTO_OVERLAY_WM"
     }
   },
+  "showLocateMe": true,
   "helperServices": {
     "geometry": {
       "url": null

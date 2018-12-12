@@ -44,8 +44,6 @@ class ListView extends Component {
       target.firstChild.checked = true;
       this.overlaysOnOff[index] = 1;
     }
-
-    this.props.updateLegendStyleWithTimeOut(0, 0, 100);
   }
 
   switchBasemap(e, basemap) {

@@ -136,7 +136,6 @@ class SearchWidget extends Component {
           mapView={this.props.mapView}
           basemaps={this.props.basemaps}
           selectedDefaultBasemap={this.props.selectedDefaultBasemap}
-          updateLegendStyleWithTimeOut={this.props.updateLegendStyleWithTimeOut}
         />
         
         <SearchInput

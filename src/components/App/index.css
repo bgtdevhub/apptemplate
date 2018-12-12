@@ -15,36 +15,24 @@
   width: 99.8%;
   border: solid 1px #ccc;
   display: flex;
+  flex-direction: column;
 }
 
 .esri-legend__service {
+  width: 100%;
+  border-bottom: none;
+}
+.esri-legend__layer-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.esri-legend__layer-caption {
   display: none;
 }
 
-.rearrangedLegend {
-  width: 100%;
-  display: flex;
-}
-
-.esri-legend__layer-cell--symbols {
-  display: flex;
-  padding-top: 5px;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .esri-legend__layer-cell--info {
-  display: flex;
   font-size: 13px;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: -2px;
-}
-
-.esri-legend__message {
-  order: -1;
-  width: 100px;
-  height: 30px;
 }
 
 /* SCALE BAR */
