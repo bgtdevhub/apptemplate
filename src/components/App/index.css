@@ -56,7 +56,6 @@
 .esri-attribution {
   background-color: transparent;
   opacity: 1;
-  height: 20px;
   z-index: 1;
 }
 
@@ -70,4 +69,25 @@
   font-size: 13px;
   opacity: 0;
   font-family: 'Arial', Times, serif;
+}
+
+.disclaimer-div {
+  display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+  .esri-interactive {
+    display: none;
+  }
+
+  .disclaimer-div {
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .vertical-line {
+    display: none;
+  }
 }

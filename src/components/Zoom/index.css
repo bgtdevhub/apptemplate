@@ -25,3 +25,9 @@
   height: 25px;
   margin-right: 5px;
 }
+
+@media only screen and (max-width: 600px) {
+  .zoomWidget {
+    display: none;
+  }
+}

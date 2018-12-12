@@ -130,8 +130,10 @@ class App extends Component {
     poweredBy[0].innerHTML = '';
 
     const disclaimerDiv = document.createElement('DIV');
-    disclaimerDiv.innerHTML = `<div>
-      Vicmap Basemap Services &copy; 2018 State Government of Victoria |
+    disclaimerDiv.classList.add("disclaimer-div");
+    disclaimerDiv.innerHTML = `<div class="disclaimer-text">
+      Vicmap Basemap Services &copy; 2018 State Government of Victoria</div>
+      <div class='vertical-line'>&nbsp;|&nbsp;</div>
       <a href="https://www2.delwp.vic.gov.au/copyright/" target="_blank" style="color:#4BABFA;">Copyright and Disclaimer</a>
     </div>`
     poweredBy[0].appendChild(disclaimerDiv);

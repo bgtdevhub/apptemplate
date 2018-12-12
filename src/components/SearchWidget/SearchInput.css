@@ -1,19 +1,25 @@
 .searchInput {
-    width: 230px;
-    border: solid 1px transparent;
-    color: #000000;
-    font-family: inherit;
-    font-size: 13px;
-    /* font-weight: 400; */
-    line-height: 1.77;
-    /* letter-spacing: .5px; */
-    z-index: 2;
-    height: 42px;
-    padding-left: 8px;
-    /* padding-right: 5px; */
-    text-transform: capitalize;
+  width: 230px;
+  border: solid 1px transparent;
+  color: #000000;
+  font-family: inherit;
+  font-size: 13px;
+  /* font-weight: 400; */
+  line-height: 1.77;
+  /* letter-spacing: .5px; */
+  z-index: 2;
+  height: 42px;
+  padding-left: 8px;
+  /* padding-right: 5px; */
+  text-transform: capitalize;
 }
 
 .searchInput:focus {
-    outline: none;
+  outline: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .searchInput {
+    width: 210px;
+  }
 }
