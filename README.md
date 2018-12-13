@@ -2,6 +2,8 @@ This project is an configurable application template to be used with [ArcGIS Onl
 
 View this application template [live](https://www.bgtdevhub.com/apptemplate/index.html)
 
+[![Configurable Template](https://img.youtube.com/vi/-Y0VmirF_Kw/0.jpg)](https://www.youtube.com/watch?v=-Y0VmirF_Kw "Configurable Template")
+
 If you want to further customize this template, download this repo and run it locally at your machine
 
 ### `npm install`
