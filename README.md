@@ -9,7 +9,7 @@ If you want to further customize this template, download this repo and run it lo
 ### `npm install`
 ### `npm start`
 
-To use this template, you can either host it at your own web server (with ssl enabled), or point it to the [live](https://www.bgtdevhub.com/apptemplate/index.html) template.
+To use this template, host it at your own web server (with ssl enabled).
 
 ## Steps to setup
 
