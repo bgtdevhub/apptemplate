@@ -12,7 +12,7 @@ class LayerListWidget extends Component {
         <ListView
           layerListViewModel={this.props.layerListViewModel}
           show={this.props.show}
-          mapView={this.props.mapView}
+          view={this.props.view}
           basemaps={this.props.basemaps}
           selectedDefaultBasemap={this.props.selectedDefaultBasemap}
         />

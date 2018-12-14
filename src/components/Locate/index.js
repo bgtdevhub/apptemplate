@@ -10,13 +10,13 @@ class LocateWidget extends Component {
 
   async componentDidUpdate() {
 
-    if (this.props.mapView) {
+    if (this.props.view) {
       const [LocateViewModel] = await esriLoader.loadModules([
         'esri/widgets/Locate/LocateViewModel'
       ]);
 
       this.vm = new LocateViewModel({
-        view: this.props.mapView,
+        view: this.props.view,
         scale: 5000
       });
 

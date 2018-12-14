@@ -57,13 +57,13 @@ class ListView extends Component {
     e.target.classList.add("bold");
 
     if (basemap === "cartographic") {
-      this.props.mapView.map.basemap = this.props.basemaps[0];
+      this.props.view.map.basemap = this.props.basemaps[0];
       this.basemapOnOff = [1, 0, 0];
     } else if (basemap === "aerial") {
-      this.props.mapView.map.basemap = this.props.basemaps[1];
+      this.props.view.map.basemap = this.props.basemaps[1];
       this.basemapOnOff = [0, 1, 0];
     } else {
-      this.props.mapView.map.basemap = this.props.basemaps[2];
+      this.props.view.map.basemap = this.props.basemaps[2];
       this.basemapOnOff = [0, 0, 1];
     }
   }

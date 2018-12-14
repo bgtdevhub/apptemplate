@@ -11,7 +11,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      mapView: null,
+      view: null,
       layerListViewModel: null,
       basemaps: [],
       selectedDefaultBasemap: 'cartographic',
@@ -80,7 +80,7 @@ class App extends Component {
       }
     });
 
-    const mapView = new MapView({
+    const view = new MapView({
       container: "viewDiv",
       map: map,
       scale: 4518427,
@@ -90,33 +90,33 @@ class App extends Component {
       }
     });
 
-    await mapView.when();
+    await view.when();
 
     if (base.config.disableScroll) {
-      mapView.on("mouse-wheel", function(event) {
+      view.on("mouse-wheel", function(event) {
         // disable mouse wheel scroll zooming on the view
         event.stopPropagation();
       });
     }
 
-    mapView.map.basemap = defaultBasemap;
+    view.map.basemap = defaultBasemap;
 
     const scaleBar = new ScaleBar({
-      view: mapView,
+      view: view,
       unit: 'metric'
     });
 
-    mapView.ui.add(scaleBar, {
+    view.ui.add(scaleBar, {
       position: "bottom-left"
     });
       
     const layerListViewModel = await new LayerListViewModel({
-      view: mapView
+      view: view
     });
 
     if (layerListViewModel.operationalItems.items.length) {
       new Legend({
-        view: mapView
+        view: view
       }, "legendDiv");
 
       this.setState({
@@ -141,7 +141,7 @@ class App extends Component {
     poweredBy[0].style.opacity = 1;
     
     this.setState({
-      mapView,
+      view,
       layerListViewModel,
       showLocateMe: base.config.showLocateMe
     })
@@ -155,13 +155,13 @@ class App extends Component {
       <div>
         <div id="viewDiv" className="viewDiv">
           <SearchWidget
-            mapView={this.state.mapView}
+            view={this.state.view}
             layerListViewModel={this.state.layerListViewModel}
             basemaps={this.state.basemaps}
             selectedDefaultBasemap={this.state.selectedDefaultBasemap}
             showLocateMe={this.state.showLocateMe}
           />
-          <ZoomWidget mapView={this.state.mapView} />
+          <ZoomWidget view={this.state.view} />
         </div>
         <div id="legendDiv" className={legendDivClass}>
         </div>

@@ -65,21 +65,21 @@ class SearchWidget extends Component {
     this.state.vmAddress.watch('selectedResult', (result) => {
       const longitude = result.extent.center.longitude;
       const latitude = result.extent.center.latitude;
-      this.props.mapView.goTo({
+      this.props.view.goTo({
         center: [longitude, latitude],
         zoom: 16
       });
-      this.props.mapView.focus();
+      this.props.view.focus();
     });
 
     this.state.vmLocality.watch('selectedResult', (result) => {
       const longitude = result.extent.center.longitude;
       const latitude = result.extent.center.latitude;
-      this.props.mapView.goTo({
+      this.props.view.goTo({
         center: [longitude, latitude],
         zoom: 16
       });
-      this.props.mapView.focus();
+      this.props.view.focus();
     });
   }
 
@@ -139,7 +139,7 @@ class SearchWidget extends Component {
           layerListViewModel={this.props.layerListViewModel}
           show={this.state.showLayerList}
           toggle={this.toggleLayerList.bind(this)}
-          mapView={this.props.mapView}
+          view={this.props.view}
           basemaps={this.props.basemaps}
           selectedDefaultBasemap={this.props.selectedDefaultBasemap}
         />
@@ -159,7 +159,7 @@ class SearchWidget extends Component {
           doSearch={this.doSearch.bind(this)}
         />
 
-        <LocateWidget mapView={this.props.mapView} showLocateMe={this.props.showLocateMe} />
+        <LocateWidget view={this.props.view} showLocateMe={this.props.showLocateMe} />
       </div>
     )
   }   

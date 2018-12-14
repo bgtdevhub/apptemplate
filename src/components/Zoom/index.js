@@ -13,13 +13,13 @@ class ZoomWidget extends Component {
   }
 
   async componentDidUpdate() {
-    if (this.props.mapView) {
+    if (this.props.view) {
       const [ZoomViewModel] = await esriLoader.loadModules([
         'esri/widgets/Zoom/ZoomViewModel'
       ]);
 
       this.vm = new ZoomViewModel({
-        view: this.props.mapView
+        view: this.props.view
       });
     }
   }
