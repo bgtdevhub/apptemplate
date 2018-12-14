@@ -1,21 +1,21 @@
 @font-face {
   font-family: 'VIC';
-  src: url("/fonts/hinted-VIC-Regular.woff2") format("woff2");
+  src: url("./fonts/hinted-VIC-Regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: 'VIC-Bold';
-  src: url("/fonts/hinted-VIC-Bold.woff2") format("woff2");
+  src: url("./fonts/hinted-VIC-Bold.woff2") format("woff2");
 }
 
 @font-face {
   font-family: 'VIC-Medium';
-  src: url("/fonts/hinted-VIC-Medium.woff2") format("woff2");
+  src: url("./fonts/hinted-VIC-Medium.woff2") format("woff2");
 }
 
 @font-face {
   font-family: 'VIC-SemiBold';
-  src: url("/fonts/hinted-VIC-SemiBold.woff2") format("woff2");
+  src: url("./fonts/hinted-VIC-SemiBold.woff2") format("woff2");
 }
 
 
