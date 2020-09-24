@@ -76,7 +76,7 @@ class App extends Component {
 
     const map = await new WebMap({
       portalItem: {
-        id: base.results.webMapItems[0].value.id
+        id: base.config.webmap
       }
     });
 

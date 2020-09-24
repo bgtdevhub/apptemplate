@@ -1,11 +1,11 @@
 {
-  "appid": "2710df5fd2b843cba6148084492a5547",
+  "appid": "853179fd300242e3bd49b457ad08bb9b",
   "group": "",
   "title": "",
   "webmap": "default",
   "webscene": "",
-  "portalUrl": "https://www.arcgis.com",
-  "oauthappid": "pvOxst5hmPvNzsKU",
+  "portalUrl": "https://gis3-dev.devawsdelwp.com/portal",
+  "oauthappid": "Wq4BwJHur8ecx71H",
   "proxyUrl": "",
   "units": "",
   "cartoBasemap": {
