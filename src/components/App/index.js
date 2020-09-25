@@ -5,7 +5,7 @@ import esriLoader, { setDefaultOptions } from 'esri-loader';
 import SearchWidget from '../SearchWidget/SearchWidget';
 import ZoomWidget from '../Zoom';
 
-// setDefaultOptions({ version: '4.9' })
+setDefaultOptions({ css: true })
 
 class App extends Component {
 
@@ -33,10 +33,8 @@ class App extends Component {
       settings: applicationSettings      
     }).load();
 
-    const [OAuthInfo, esriId, MapView, WebMap, ScaleBar, LayerListViewModel, Legend, WMTSLayer, Basemap] = await esriLoader.loadModules(
+    const [MapView, WebMap, ScaleBar, LayerListViewModel, Legend, WMTSLayer, Basemap] = await esriLoader.loadModules(
       [
-        "esri/identity/OAuthInfo",
-        "esri/identity/IdentityManager",
         "esri/views/MapView",
         "esri/WebMap",
         "esri/widgets/ScaleBar",
@@ -46,23 +44,6 @@ class App extends Component {
         "esri/Basemap"
       ]
     );
-
-    console.log(base, base.config.portalUrl) 
-    // var info = new OAuthInfo({
-    //   appId: base.config.oauthappid,
-    //   portalUrl: base.config.portalUrl,
-    //   popup: true
-    // });
-    // // override the default behavior of force redirecting to /home/signin.html in scenarios where app is hosted alongside ArcGIS Enterprise or on *.arcgis.com
-    // esriId.useSignInPage = false;
-    // esriId.registerOAuthInfos([info]);
-
-    // check to see if a user signed in during a previous visit
-    // esriId.checkSignInStatus(info.portalUrl + "/sharing").then(
-    //   function (credential) {
-    //     snagUserInfo(credential);
-    //   }
-    // );
 
     const wmtsCartoDELWP = new WMTSLayer(base.config.cartoBasemap);
 

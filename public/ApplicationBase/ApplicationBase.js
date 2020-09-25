@@ -199,7 +199,6 @@ define(["require", "exports", "esri/core/promiseUtils", "esri/identity/IdentityM
                 })
                 : promiseUtils_1.resolve();
             var loadPortal = portalSettings.fetch ? new Portal_1.default().load() : promiseUtils_1.resolve();
-            console.log(loadPortal)
             return promiseUtils_1.eachAlways([
                 loadApplicationItem,
                 fetchApplicationData,
