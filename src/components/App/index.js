@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './index.css';
-import esriLoader from 'esri-loader';
+import esriLoader, { setDefaultOptions } from 'esri-loader';
 
 import SearchWidget from '../SearchWidget/SearchWidget';
 import ZoomWidget from '../Zoom';
+
+setDefaultOptions({ css: true })
 
 class App extends Component {
 
@@ -76,7 +78,8 @@ class App extends Component {
 
     const map = await new WebMap({
       portalItem: {
-        id: base.results.webMapItems[0].value.id
+        id: base.config.webmap,
+        portal: base.portal
       }
     });
 
