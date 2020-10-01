@@ -19,3 +19,7 @@ To use this template, host it at your own web server (with ssl enabled).
 
 3. Enter the URL for the this template(your own hosted full web server URL or https://www.bgtdevhub.com/apptemplate/index.html) for your configurable app at the "Data Source" input. 
 
+## Notes
+
+Has been tested to work with ArcGIS 10.8.1 but the configurable app template application (the one in portal) needs to be created from Web App Builder Developer edition.
+
