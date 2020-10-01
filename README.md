@@ -23,3 +23,4 @@ To use this template, host it at your own web server (with ssl enabled).
 
 Has been tested to work with ArcGIS 10.8.1 but the configurable app template application (the one in portal) needs to be created from Web App Builder Developer edition.
 
+![Creating app template from web app builder developer edition](./documentation/screenshot.png)
