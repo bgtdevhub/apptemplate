@@ -6,7 +6,7 @@
     "esri-loader": "^2.15.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "2.1.1"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
